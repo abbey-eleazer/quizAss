@@ -1,0 +1,19 @@
+Take home Quiz: [3 marks per question]
+
+What is JWT and how does it work ?
+Explain the difference between cookies and tokens in web development.
+How can you secure JWT tokens from being tampered with or decoded ?
+What are the advantages of using JWT over traditional session - based authentication ?
+How does the concept of statelessness apply to JWT authentication ?
+What are the common security risks associated with using cookies for authentication ?
+How can you implement token - based authentication in a Node.js Express server ?
+Explain the process of token validation in a Node.js Express server.
+How can you handle token expiration and renewal in a Node.js Express server ?
+Discuss the best practices for storing and managing JWT tokens securely in a web application.
+Practical Assignment: [10marks per question]
+
+Implement JWT - based authentication in a Node.js Express server.
+Create a route that generates a JWT token upon successful login and stores it in a cookie.
+Develop middleware to verify and decode the JWT token in incoming requests.
+Implement token expiration and renewal logic in your Node.js Express server.
+Securely store and manage JWT tokens using a database or session storage in your application.
