@@ -33,6 +33,31 @@ Because cookies store and sends data which is the user authentication credential
 
 7. How can you implement token - based authentication in a Node.js Express server ?
 
+i. Install jsonwebtoken and other required packages.
+ii. Create a JWT_SECRET_KEY
+iii. Require JWT in routes and controllers
+iv. Create middleware function to verify tokens
+v. Create auth middleware to authenticate token
+vi. Require and use created middlewares in your server's routes where needed
+
 8. Explain the process of token validation in a Node.js Express server.
+
+The server extracts the token from the incoming request header, then the server uses a secret key to verify the tokens signature. This step ensures that the token was issued by the server and has not been tampered with. The server then validates the token, this verify function also checks the standard claims like exp by default. If the token is valid, the server then proceeds to authorize the request based on the token's payload.
+The server rejects the request with an appropriate HTTP status code, when any of the step fails.
+
 9. How can you handle token expiration and renewal in a Node.js Express server ?
+
+i. Create a middleware that decodes the token and checks the exp claim against the current time.
+ii. Create a refresh token mechanism
+iii. Create a dedicated endpoint in your Express server that accepts refresh tokens. 
+iv. Implement middleware in your Express server that intercepts requests with expired tokens.
+v.  Ensure that refresh tokens are stored securely, using appropriate measures such as encryption. 
+
 10. Discuss the best practices for storing and managing JWT tokens securely in a web application.
+
+i. Always use HTTPS to protect the token during transmission. This prevents hackers from accessing the token.
+ii. Use HttpOnly cookies to store JWT tokens in localStorage or sessionStorage on the client side.
+iii.  JWT tokens should have a short expiration time to reduce the risk if a token is compromised. Use refresh tokens to maintain session continuity without forcing the user to log in again.
+iv. When signing tokens, use a strong, unique secret key or a public/private key pair for asymmetric algorithms.
+v. Always validate the token's signature on the server to ensure it hasn't been tampered with.
+vi.  Properly configure CORS settings if your API is accessed from different domains to ensure that tokens are not leaked to unauthorized domains.
