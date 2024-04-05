@@ -1,0 +1,23 @@
+{
+  "name": "newass",
+  "version": "1.0.0",
+  "description": "api assignment",
+  "main": "server.js",
+  "scripts": {
+    "server": "nodemon server",
+    "start": "node server.js"
+  },
+  "author": "eleazer",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "colors": "^1.4.0",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.5.0",
+    "mongoose": "^8.3.0",
+    "morgan": "^1.10.0"
+  }
+}
