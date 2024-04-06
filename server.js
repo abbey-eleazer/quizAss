@@ -3,6 +3,7 @@ const  morgan  = require('morgan')
 require('dotenv').config()
 const db_connection = require('./config/db')
 const cookieParser = require('cookie-parser')
+const cors = require('cors')
 
 
 //PORT
@@ -18,6 +19,7 @@ app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use(morgan('dev'))
 app.use(cookieParser())
+app.use(cors())
 
 app.post('/', (req, res) => {
   res.send({message: 'Api is Working'})

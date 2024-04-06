@@ -69,7 +69,7 @@ exports.login = async (req, res, next) => {
 
   try {
     
-    const isMatch = await bcrypt.compare(password, user.password)
+    const isMatch = await bcrypt.compare(req.body.password, user.password)
 
     if (!isMatch) {
       return res.status(400).json({ message: 'Invalid user credentials' })
@@ -80,6 +80,7 @@ exports.login = async (req, res, next) => {
     //generate token
     const token = createJwtToken(user?._id, user?.email)
 
+    //store jwt token in cookie
     res.cookie('userToken', token, {
       httpOnly: true,
       secure: true,
@@ -94,6 +95,19 @@ exports.login = async (req, res, next) => {
 
 }
 
-exports.getUser = async (req, res, next) => {
+exports.getUsers = async (req, res) => {
    
+  const user = req?.auth
+  // const users = await User.find().sort({ createdAt: -1})
+
+  // res.json({ users, auth: user })
+
+  try {
+    const users = await User.find().sort({ createdAt: -1})
+    res.json({ users, auth: user })
+  } catch (error) {
+    // Handle error here
+    console.error(error)
+    res.status(500).json({ error: 'Internal Server Error' })
+  }
 }
